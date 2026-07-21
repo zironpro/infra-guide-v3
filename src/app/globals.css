@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #071A12;
+  --foreground: #D7D2C4;
+  --card: #123224;
+  --card-foreground: #D7D2C4;
+  --popover: #0E241B;
+  --popover-foreground: #D7D2C4;
+  --primary: #D4AF37;
+  --primary-foreground: #071A12;
+  --primary-hover: #E8C65B;
+  --secondary: #0E241B;
+  --secondary-foreground: #F6F3E8;
+  --muted: #0E241B;
+  --muted-foreground: #D7D2C4;
+  --accent: #F2D675;
+  --accent-foreground: #071A12;
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+  --border: #8F7A2C;
+  --input: #8F7A2C;
+  --ring: #D4AF37;
+  --radius: 0.5rem;
+  
+  --heading: #F6F3E8;
+  --section: #0E241B;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-heading: var(--heading);
+  --color-section: var(--section);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-button: var(--font-button);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-heading;
+  }
 }
