@@ -8,11 +8,9 @@ import { Input } from "@/components/ui/input";
 export const CtaSection = () => {
 	return (
 		<section
-			className="relative w-full overflow-hidden border-primary/20 border-t py-16 md:py-20"
+			className="relative w-full overflow-hidden border-primary/20 border-t bg-background py-16 md:py-20"
 			id="contact"
 		>
-			<div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
-
 			<div className="container relative z-10 mx-auto px-4">
 				<motion.div
 					className="mx-auto grid max-w-6xl items-center gap-12 text-center md:grid-cols-2 md:text-left"
