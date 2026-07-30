@@ -110,10 +110,19 @@ export function Footer() {
 
 				{/* Bottom Bar */}
 				<div className="mt-20 flex flex-col items-center justify-between gap-4 border-primary/10 border-t pt-8 md:flex-row">
-					<p className="text-foreground/50 text-sm">
-						&copy; {new Date().getFullYear()} Shashi S. Piptan. All rights
-						reserved.
-					</p>
+					<div className="flex flex-col items-center gap-2 md:flex-row md:gap-4">
+						<p className="text-foreground/50 text-sm">
+							&copy; {new Date().getFullYear()}, Piptan Investment &amp;
+							Securities, All rights reserved
+						</p>
+						<span className="hidden text-foreground/30 md:inline">&bull;</span>
+						<Link
+							className="text-foreground/60 text-sm transition-colors hover:text-primary hover:underline"
+							href="/privacy-policy"
+						>
+							Privacy Policy
+						</Link>
+					</div>
 					<p className="text-foreground/50 text-sm">
 						Designed and developed by{" "}
 						<a
