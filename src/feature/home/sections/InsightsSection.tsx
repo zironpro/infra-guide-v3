@@ -30,9 +30,14 @@ export const InsightsSection = () => {
 		restDelta: 0.001,
 	});
 
-	// We have 4 screens (100vw each) -> 400vw total track width.
-	// Scroll from 0vw to -300vw as user scrolls down the 500vh section.
-	const x = useTransform(smoothProgress, [0, 1], ["0vw", "-300vw"]);
+	// Desktop: 4 screens (100vw each) -> 400vw total track width.
+	const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-300vw"]);
+
+	// Mobile: 7 screens (100vw each) -> 700vw total track width (1 title + 6 single items).
+	const xMobile = useTransform(smoothProgress, [0, 1], ["0vw", "-600vw"]);
+
+	// Mobile background horizontal parallax translation (pans horizontally with scroll)
+	const bgXMobile = useTransform(smoothProgress, [0, 1], ["0%", "-35%"]);
 
 	const insights = [
 		{
@@ -75,25 +80,75 @@ export const InsightsSection = () => {
 
 	return (
 		<section
-			className="relative h-[500vh] bg-background"
+			className="relative h-[600vh] bg-background"
 			id="insights"
 			ref={ref}
 		>
-			{/* Sticky container pins for the duration of the 500vh scroll */}
+			{/* Sticky container pins for the duration of the scroll */}
 			<div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
-				{/* Background Image */}
-				<div className="pointer-events-none absolute inset-0 -z-10">
+				{/* Background Image - Mobile Horizontal Parallax */}
+				<motion.div
+					className="pointer-events-none absolute inset-0 -z-10 h-full w-[160%] md:hidden"
+					style={{ x: bgXMobile }}
+				>
+					<Image
+						alt="Insights Mobile Background"
+						className="object-cover"
+						fill
+						priority
+						src="/parallex/hero-bg.png"
+					/>
+					<div className="absolute inset-0 bg-background/60" />
+				</motion.div>
+
+				{/* Background Image - Desktop */}
+				<div className="pointer-events-none absolute inset-0 -z-10 hidden md:block">
 					<Image
 						alt="Insights Background"
 						className="object-cover"
 						fill
 						src="/images/insight-bg.png"
 					/>
-					<div className="absolute inset-0 bg-background/50" />
+					<div className="absolute inset-0 bg-background/60" />
 				</div>
 
-				{/* Horizontal Scroll Track */}
-				<motion.div className="flex h-full" style={{ x }}>
+				{/* Mobile Horizontal Scroll Track (1 item per slide) */}
+				<motion.div className="flex h-full md:hidden" style={{ x: xMobile }}>
+					{/* Slide 1: Title */}
+					<div className="flex h-screen w-screen shrink-0 flex-col items-center justify-center p-6 text-center">
+						<p className="mb-4 font-medium text-primary/80 text-xs uppercase tracking-[0.2em]">
+							Why it's an
+						</p>
+						<h2 className="font-heading font-light text-4xl text-heading uppercase tracking-wide">
+							Essential Read
+						</h2>
+						<p className="mt-6 max-w-xs text-foreground/70 text-sm leading-relaxed">
+							What makes "The Urban Evolution of Dubai: A Blueprint for
+							Infrastructure Investment" indispensable.
+						</p>
+					</div>
+
+					{/* Slides 2-7: Individual Insights */}
+					{insights.map((insight) => (
+						<div
+							className="flex h-screen w-screen shrink-0 items-center justify-center p-6 text-center"
+							key={`mobile-${insight.title}`}
+						>
+							<div className="flex w-full max-w-xs flex-col items-center justify-center sm:max-w-sm">
+								<insight.icon className="mb-5 h-10 w-10 stroke-[1.5] text-primary/80" />
+								<h3 className="mb-3 font-heading font-light text-2xl text-heading uppercase leading-snug tracking-wide">
+									{insight.title}
+								</h3>
+								<p className="font-light text-foreground/80 text-sm leading-relaxed">
+									{insight.description}
+								</p>
+							</div>
+						</div>
+					))}
+				</motion.div>
+
+				{/* Desktop Horizontal Scroll Track (2 items per slide) */}
+				<motion.div className="hidden h-full md:flex" style={{ x: xDesktop }}>
 					{/* Slide 1: Massive Centered Heading */}
 					<div className="flex h-screen w-screen shrink-0 flex-col items-center justify-center p-8 text-center">
 						<p className="mb-6 font-medium text-primary/80 uppercase tracking-[0.2em]">

@@ -41,7 +41,7 @@ export function Footer() {
 						<a
 							aria-label="Instagram"
 							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://instagram.com"
+							href="https://www.instagram.com/shashipiptan"
 							rel="noopener noreferrer"
 							target="_blank"
 						>
@@ -64,7 +64,7 @@ export function Footer() {
 						<a
 							aria-label="Facebook"
 							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://facebook.com"
+							href="https://facebook.com/shashi-piptan"
 							rel="noopener noreferrer"
 							target="_blank"
 						>
@@ -85,7 +85,7 @@ export function Footer() {
 						<a
 							aria-label="LinkedIn"
 							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://linkedin.com"
+							href="https://www.linkedin.com/company/shashi-piptan/home/"
 							rel="noopener noreferrer"
 							target="_blank"
 						>
