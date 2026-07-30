@@ -24,6 +24,10 @@ const fontButton = Manrope({
 export const metadata: Metadata = {
 	title: "Infraguide",
 	description: "Your complete guide to infrastructure excellence.",
+	icons: {
+		icon: "/icon.svg",
+		apple: "/icon.svg",
+	},
 };
 
 export default function RootLayout({
