@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Manrope } from "next/font/google";
 
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+
 import { Footer } from "@/components/layout/Footer";
 import { SideProgress } from "@/components/layout/SideProgress";
 import "./globals.css";
@@ -28,6 +30,9 @@ export const metadata: Metadata = {
 		icon: "/icon.svg",
 		apple: "/icon.svg",
 	},
+	verification: {
+		google: "rc10UpQtP5iDbSLsHSVkzcq9hGItv_qUt4cE4mBTqMg",
+	},
 };
 
 export default function RootLayout({
@@ -45,6 +50,8 @@ export default function RootLayout({
 				{/* <Navbar /> */}
 				{children}
 				<Footer />
+				<GoogleAnalytics gaId="G-JHKVBY5F8C" />
+				<GoogleTagManager gtmId="GTM-WCZCMJCB" />
 			</body>
 		</html>
 	);

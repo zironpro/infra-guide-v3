@@ -127,18 +127,23 @@ export const HeroSection = () => {
 						initial="hidden"
 						variants={containerVariants}
 					>
+						<h1 className="sr-only">
+							Dubai's Urban Evolution: A Blueprint for Infrastructure Investment
+						</h1>
 						<motion.p
-							className="mb-6 font-medium text-foreground/90 uppercase tracking-[0.3em] drop-shadow-md text-sm md:text-base"
+							aria-hidden
+							className="mb-6 font-medium text-foreground/90 text-sm uppercase tracking-[0.3em] drop-shadow-md md:text-base"
 							variants={itemVariants}
 						>
 							A Blueprint for Infrastructure Investment
 						</motion.p>
-						<motion.h1
+						<motion.div
+							aria-hidden
 							className="font-heading font-light text-5xl text-heading uppercase tracking-wide drop-shadow-lg md:text-7xl lg:text-8xl"
 							variants={itemVariants}
 						>
 							Dubai's Urban Evolution
-						</motion.h1>
+						</motion.div>
 					</motion.div>
 				</motion.div>
 			</div>
