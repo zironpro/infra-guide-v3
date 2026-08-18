@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import Link from "next/link";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export const SideProgress = () => {
@@ -25,8 +27,9 @@ export const SideProgress = () => {
 	return (
 		<div className="pointer-events-none fixed top-0 left-4 z-50 hidden h-screen w-24 flex-col items-center justify-between py-12 text-white mix-blend-difference md:flex">
 			{/* Top: Circular Logo */}
-			<div
+			<Link
 				className="pointer-events-auto relative flex cursor-pointer items-center justify-center transition-transform hover:scale-105 active:scale-95"
+				href="/"
 				onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
 			>
 				<motion.div className="relative h-[72px] w-[72px]" style={{ rotate }}>
@@ -56,7 +59,7 @@ export const SideProgress = () => {
 						</text>
 					</svg>
 				</div>
-			</div>
+			</Link>
 
 			{/* Middle: Progress Bar */}
 			<div className="flex flex-1 flex-col items-center gap-6 py-12">

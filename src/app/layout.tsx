@@ -34,10 +34,10 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: [
 			{
-				url: "/images/dubai-infrastructure-boom.webp",
-				width: 1200,
-				height: 630,
-				alt: "Dubai Infrastructure Boom",
+				url: "/icon.svg",
+				width: 512,
+				height: 512,
+				alt: "Infraguide UAE Logo",
 			},
 		],
 	},
