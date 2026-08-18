@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: [
 			{
-				url: "/icon.svg",
+				url: "/icon.png",
 				width: 512,
 				height: 512,
 				alt: "Infraguide UAE Logo",
