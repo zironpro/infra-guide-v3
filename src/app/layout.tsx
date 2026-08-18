@@ -24,6 +24,7 @@ const fontButton = Manrope({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://infraguideuae.com"),
 	title: "Infraguide",
 	description: "Your complete guide to infrastructure excellence.",
 	icons: {
