@@ -30,6 +30,16 @@ export const metadata: Metadata = {
 		icon: "/icon.svg",
 		apple: "/icon.svg",
 	},
+	openGraph: {
+		images: [
+			{
+				url: "/images/dubai-infrastructure-boom.webp",
+				width: 1200,
+				height: 630,
+				alt: "Dubai Infrastructure Boom",
+			},
+		],
+	},
 	verification: {
 		google: "rc10UpQtP5iDbSLsHSVkzcq9hGItv_qUt4cE4mBTqMg",
 	},
