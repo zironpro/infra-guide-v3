@@ -9,120 +9,75 @@ import logoSrc from "@/assets/logo/logo.svg";
 
 export function Footer() {
 	return (
-		<footer className="w-full overflow-hidden rounded-2xl border-primary/20 border-t bg-background pt-20 pb-8">
+		<footer className="w-full overflow-hidden border-primary/20 border-t bg-background pt-20 pb-8">
 			<motion.div
-				className="container mx-auto px-4"
+				className="container"
 				initial={{ opacity: 0, y: 40 }}
 				transition={{ duration: 0.8, ease: "easeOut" }}
 				viewport={{ once: true, margin: "-50px" }}
 				whileInView={{ opacity: 1, y: 0 }}
 			>
-				<div className="flex flex-col items-center justify-center text-center">
-					<Link
-						className="inline-block transition-opacity hover:opacity-80"
-						href="/"
-					>
-						<Image
-							alt="Shashi S. Piptan"
-							className="object-contain"
-							height={48}
-							src={logoSrc}
-							width={140}
-						/>
-					</Link>
-					<p className="mt-6 max-w-md text-base text-foreground/70 leading-relaxed">
-						Discover authoritative insights on urban development,
-						infrastructure investment, and sustainable growth that are shaping
-						the future of the UAE.
-					</p>
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+					{/* Left Section */}
+					<div className="flex flex-col items-start text-left lg:col-span-5">
+						<Link
+							className="inline-block transition-opacity hover:opacity-80"
+							href="/"
+						>
+							<Image
+								alt="Shashi S. Piptan"
+								className="object-contain"
+								height={48}
+								src={logoSrc}
+								width={140}
+							/>
+						</Link>
+						
+						<h2 className="mt-10 font-heading text-3xl uppercase leading-tight tracking-wide text-heading sm:text-4xl md:text-5xl">
+							Discover authoritative insights on <span className="text-primary">urban development.</span>
+						</h2>
+						
+						<p className="mt-6 max-w-md text-base text-foreground/70 leading-relaxed">
+							Infrastructure investment and sustainable growth that are shaping
+							the future of the UAE.
+						</p>
 
-					{/* Social Icons */}
-					<div className="mt-8 flex items-center gap-4 text-foreground/50">
-						<a
-							aria-label="Instagram"
-							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://www.instagram.com/shashipiptan"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							<svg
-								fill="none"
-								height="18"
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								viewBox="0 0 24 24"
-								width="18"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
-								<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-								<line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-							</svg>
-						</a>
-						<a
-							aria-label="Facebook"
-							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://facebook.com/shashi-piptan"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							<svg
-								fill="none"
-								height="18"
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								viewBox="0 0 24 24"
-								width="18"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-							</svg>
-						</a>
-						<a
-							aria-label="LinkedIn"
-							className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-section transition-all hover:-translate-y-1 hover:border-primary hover:text-primary"
-							href="https://www.linkedin.com/company/shashi-piptan/home/"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							<svg
-								fill="none"
-								height="18"
-								stroke="currentColor"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								viewBox="0 0 24 24"
-								width="18"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-								<rect height="12" width="4" x="2" y="9" />
-								<circle cx="4" cy="4" r="2" />
-							</svg>
-						</a>
+
+					</div>
+
+					{/* Right Section Grid */}
+					<div className="lg:col-span-6 lg:col-start-7 grid grid-cols-2 md:grid-cols-3 gap-8 pt-4 lg:pt-10">
+						{/* General Column */}
+						<div className="flex flex-col gap-4">
+							<h4 className="font-heading text-sm uppercase tracking-[0.2em] text-primary">General</h4>
+							<Link className="text-foreground/70 transition-colors hover:text-primary" href="/">Home</Link>
+							<Link className="text-foreground/70 transition-colors hover:text-primary" href="/#about">About</Link>
+							<Link className="text-foreground/70 transition-colors hover:text-primary" href="/blogs">Blog</Link>
+							<Link className="text-foreground/70 transition-colors hover:text-primary" href="/#contact">Contact</Link>
+						</div>
+
+						{/* Support Column */}
+						<div className="flex flex-col gap-4">
+							<h4 className="font-heading text-sm uppercase tracking-[0.2em] text-primary">Support</h4>
+							<Link className="text-foreground/70 transition-colors hover:text-primary" href="/privacy-policy">Privacy Policy</Link>
+						</div>
+
+						{/* Social Column */}
+						<div className="flex flex-col gap-4">
+							<h4 className="font-heading text-sm uppercase tracking-[0.2em] text-primary">Social</h4>
+							<a className="text-foreground/70 transition-colors hover:text-primary" href="https://www.linkedin.com/company/shashi-piptan/home/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+							<a className="text-foreground/70 transition-colors hover:text-primary" href="https://www.instagram.com/shashipiptan" target="_blank" rel="noopener noreferrer">Instagram</a>
+							<a className="text-foreground/70 transition-colors hover:text-primary" href="https://facebook.com/shashi-piptan" target="_blank" rel="noopener noreferrer">Facebook</a>
+						</div>
 					</div>
 				</div>
 
 				{/* Bottom Bar */}
 				<div className="mt-20 flex flex-col items-center justify-between gap-4 border-primary/10 border-t pt-8 md:flex-row">
-					<div className="flex flex-col items-center gap-2 md:flex-row md:gap-4">
-						<p className="text-foreground/50 text-sm">
-							&copy; {new Date().getFullYear()}, Piptan Investment &amp;
-							Securities, All rights reserved
-						</p>
-						<span className="hidden text-foreground/30 md:inline">&bull;</span>
-						<Link
-							className="text-foreground/60 text-sm transition-colors hover:text-primary hover:underline"
-							href="/privacy-policy"
-						>
-							Privacy Policy
-						</Link>
-					</div>
+					<p className="text-foreground/50 text-sm">
+						&copy; 2026 Piptan Investment &amp; Securities, All rights reserved
+					</p>
+					
 					<p className="text-foreground/50 text-sm">
 						Designed and developed by{" "}
 						<a

@@ -31,13 +31,17 @@ export const InsightsSection = () => {
 	});
 
 	// Desktop: 4 screens (100vw each) -> 400vw total track width.
-	const xDesktop = useTransform(smoothProgress, [0, 1], ["0vw", "-300vw"]);
+	const xDesktop = useTransform(
+		smoothProgress,
+		[0.05, 0.85],
+		["0vw", "-300vw"]
+	);
 
 	// Mobile: 7 screens (100vw each) -> 700vw total track width (1 title + 6 single items).
-	const xMobile = useTransform(smoothProgress, [0, 1], ["0vw", "-600vw"]);
+	const xMobile = useTransform(smoothProgress, [0.05, 0.85], ["0vw", "-600vw"]);
 
 	// Mobile background horizontal parallax translation (pans horizontally with scroll)
-	const bgXMobile = useTransform(smoothProgress, [0, 1], ["0%", "-35%"]);
+	const bgXMobile = useTransform(smoothProgress, [0.05, 0.85], ["0%", "-35%"]);
 
 	const insights = [
 		{
@@ -119,10 +123,10 @@ export const InsightsSection = () => {
 						<p className="mb-4 font-medium text-primary/80 text-xs uppercase tracking-[0.2em]">
 							Why it's an
 						</p>
-						<h2 className="font-heading font-light text-4xl text-heading uppercase tracking-wide">
+						<h2 className="font-heading font-light text-5xl text-heading uppercase tracking-wide sm:text-6xl">
 							Essential Read
 						</h2>
-						<p className="mt-6 max-w-xs text-foreground/70 text-sm leading-relaxed">
+						<p className="mt-6 max-w-xs text-foreground/70 text-lg leading-relaxed sm:text-xl">
 							What makes "The Urban Evolution of Dubai: A Blueprint for
 							Infrastructure Investment" indispensable.
 						</p>
@@ -136,10 +140,10 @@ export const InsightsSection = () => {
 						>
 							<div className="flex w-full max-w-xs flex-col items-center justify-center sm:max-w-sm">
 								<insight.icon className="mb-5 h-10 w-10 stroke-[1.5] text-primary/80" />
-								<h3 className="mb-3 font-heading font-light text-2xl text-heading uppercase leading-snug tracking-wide">
+								<h3 className="mb-3 font-heading font-light text-3xl text-heading uppercase leading-snug tracking-wide sm:text-4xl">
 									{insight.title}
 								</h3>
-								<p className="font-light text-foreground/80 text-sm leading-relaxed">
+								<p className="font-light text-foreground/80 text-lg leading-relaxed sm:text-xl">
 									{insight.description}
 								</p>
 							</div>
@@ -177,7 +181,7 @@ export const InsightsSection = () => {
 											key={insight.title}
 										>
 											<insight.icon className="mb-6 h-12 w-12 stroke-[1] text-primary/60" />
-											<h3 className="mb-4 font-heading font-light text-3xl text-heading uppercase tracking-wide md:text-5xl">
+											<h3 className="mb-4 font-heading font-light text-4xl text-heading uppercase tracking-wide md:text-5xl lg:text-6xl">
 												{insight.title}
 											</h3>
 											<p className="font-light text-foreground/80 text-lg leading-relaxed md:text-2xl">

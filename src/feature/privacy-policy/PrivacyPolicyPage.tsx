@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 export const PrivacyPolicyPage = () => {
 	return (
 		<main className="min-h-screen w-full bg-background pt-12 pb-24 text-foreground">
-			<div className="container mx-auto max-w-4xl px-4">
+			<div className="container max-w-4xl">
 				{/* Back to Home Link */}
 				<Link
 					className="mb-8 inline-flex items-center gap-2 font-medium text-primary text-sm transition-colors hover:underline"
@@ -16,19 +16,19 @@ export const PrivacyPolicyPage = () => {
 				</Link>
 
 				<header className="mb-12 border-primary/20 border-b pb-8">
-					<h1 className="mb-4 font-heading text-4xl text-heading uppercase tracking-wide sm:text-5xl lg:text-6xl">
+					<h1 className="mb-4 font-heading text-4xl text-heading uppercase tracking-wide sm:text-5xl md:text-6xl lg:text-7xl">
 						Privacy Policy
 					</h1>
-					<p className="text-base text-foreground/70 sm:text-lg">
+					<p className="text-lg text-foreground/70 sm:text-xl lg:text-2xl">
 						At Shashi Piptan (&quot;we,&quot; &quot;our,&quot; or
 						&quot;us&quot;), we value your privacy and are committed to
 						protecting your personal information.
 					</p>
 				</header>
 
-				<div className="space-y-10 font-light text-base text-foreground/80 leading-relaxed">
+				<div className="space-y-10 font-light text-lg text-foreground/80 leading-relaxed sm:text-xl">
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							1. Information We Collect
 						</h2>
 						<p className="mb-3">We only collect the following information:</p>
@@ -47,7 +47,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							2. How We Use Your Information
 						</h2>
 						<p className="mb-3">Your email address will be used solely for:</p>
@@ -64,7 +64,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							3. How We Protect Your Information
 						</h2>
 						<p className="mb-3">
@@ -79,7 +79,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							4. Sharing of Information
 						</h2>
 						<p>
@@ -91,7 +91,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							5. Your Rights
 						</h2>
 						<ul className="list-disc space-y-2 pl-6">
@@ -114,7 +114,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							6. Third-Party Links
 						</h2>
 						<p>
@@ -125,7 +125,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section>
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							7. Changes to This Privacy Policy
 						</h2>
 						<p>
@@ -136,7 +136,7 @@ export const PrivacyPolicyPage = () => {
 					</section>
 
 					<section className="border-primary/20 border-t pt-8">
-						<h2 className="mb-4 font-heading text-2xl text-heading uppercase tracking-wide sm:text-3xl">
+						<h2 className="mb-4 font-heading text-3xl text-heading uppercase tracking-wide sm:text-4xl">
 							8. Contact Us
 						</h2>
 						<p className="mb-4">

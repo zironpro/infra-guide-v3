@@ -22,7 +22,7 @@ export const AuthorSection = () => {
 
 				{/* Text Content */}
 				<div className="relative z-10 w-full md:absolute md:bottom-0 md:left-0">
-					<div className="container mx-auto px-4 md:pb-16 lg:pb-24">
+					<div className="container md:pb-16 lg:pb-24">
 						<motion.div
 							className="w-full max-w-3xl md:ml-auto md:w-2/3 lg:w-1/2"
 							initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export const AuthorSection = () => {
 							</span>
 
 							{/* Uppercase Quote */}
-							<p className="font-heading font-light text-heading text-xl uppercase leading-snug tracking-wider sm:text-2xl md:text-3xl md:text-white lg:text-4xl">
+							<p className="font-heading font-light text-heading text-2xl uppercase leading-snug tracking-wider sm:text-3xl md:text-4xl md:text-white lg:text-5xl">
 								INFRASTRUCTURE IS NOT JUST ABOUT BUILDING ROADS AND SKYSCRAPERS;
 								IT'S ABOUT ENGINEERING THE FUTURE OF HUMAN CONNECTIVITY AND
 								SUSTAINABLE GROWTH.

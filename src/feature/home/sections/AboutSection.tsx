@@ -55,7 +55,7 @@ export const AboutSection = () => {
 
 			{/* Main Content Area */}
 			<div className="relative z-20 w-full bg-background pt-4 pb-12 md:pb-16">
-				<div className="container mx-auto px-4">
+				<div className="container">
 					<motion.div
 						className="flex flex-col items-center text-center"
 						initial={{ opacity: 0, y: 40 }}
@@ -129,7 +129,7 @@ export const AboutSection = () => {
 							<AnimatePresence mode="wait">
 								<motion.p
 									animate={{ opacity: 1, y: 0 }}
-									className="max-w-2xl font-medium text-foreground/80 text-lg leading-relaxed md:text-xl"
+									className="max-w-2xl font-medium text-foreground/80 text-xl leading-relaxed md:text-2xl"
 									exit={{ opacity: 0, y: -10 }}
 									initial={{ opacity: 0, y: 10 }}
 									key={`desc-${activeIndex}`}

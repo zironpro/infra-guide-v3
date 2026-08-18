@@ -118,7 +118,7 @@ export const HeroSection = () => {
 
 				{/* Content */}
 				<motion.div
-					className="container relative z-30 mx-auto flex flex-col items-center px-4 text-center"
+					className="container relative z-30 flex flex-col items-center text-center"
 					style={{ y: textY, opacity: textOpacity }}
 				>
 					<motion.div
@@ -132,14 +132,14 @@ export const HeroSection = () => {
 						</h1>
 						<motion.p
 							aria-hidden
-							className="mb-6 font-medium text-foreground/90 text-sm uppercase tracking-[0.3em] drop-shadow-md md:text-base"
+							className="mb-6 font-medium text-foreground/90 text-lg uppercase tracking-[0.3em] drop-shadow-md md:text-xl lg:text-2xl"
 							variants={itemVariants}
 						>
 							A Blueprint for Infrastructure Investment
 						</motion.p>
 						<motion.div
 							aria-hidden
-							className="font-heading font-light text-5xl text-heading uppercase tracking-wide drop-shadow-lg md:text-7xl lg:text-8xl"
+							className="font-heading font-light text-5xl text-heading uppercase tracking-wide drop-shadow-lg sm:text-6xl md:text-7xl lg:text-8xl"
 							variants={itemVariants}
 						>
 							Dubai's Urban Evolution

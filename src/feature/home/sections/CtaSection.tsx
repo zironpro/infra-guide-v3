@@ -11,7 +11,7 @@ export const CtaSection = () => {
 			className="relative w-full overflow-hidden border-primary/20 border-t bg-background py-16 md:py-20"
 			id="contact"
 		>
-			<div className="container relative z-10 mx-auto px-4">
+			<div className="container relative z-10">
 				<motion.div
 					className="mx-auto grid max-w-6xl items-center gap-12 text-center md:grid-cols-2 md:text-left"
 					initial={{ opacity: 0, y: 40 }}
@@ -20,7 +20,7 @@ export const CtaSection = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 				>
 					<div>
-						<h2 className="mb-4 font-heading font-light text-3xl text-heading md:text-5xl">
+						<h2 className="mb-4 font-heading font-light text-4xl text-heading md:text-5xl lg:text-6xl">
 							Pre-Order{" "}
 							<span className="bg-linear-to-r from-accent via-primary to-accent bg-clip-text font-bold text-transparent">
 								Today

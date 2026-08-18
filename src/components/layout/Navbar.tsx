@@ -36,7 +36,7 @@ export function Navbar() {
 			/>
 
 			<div
-				className={`container relative z-10 mx-auto flex items-center justify-between px-4 transition-all duration-500 ${isScrolled ? "py-3 md:py-4" : "py-6 md:py-8"}`}
+				className={`container relative z-10 flex items-center justify-between transition-all duration-500 ${isScrolled ? "py-3 md:py-4" : "py-6 md:py-8"}`}
 			>
 				<div className="flex items-center gap-8">
 					<Link

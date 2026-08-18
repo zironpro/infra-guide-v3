@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export const BannerSection = () => {
 	return (
 		<section className="w-full overflow-hidden bg-background py-8">
-			<div className="w-full sm:container sm:mx-auto sm:px-4">
+			<div className="w-full sm:container">
 				<motion.div
 					className="relative aspect-21/9 w-full overflow-hidden rounded-none border-primary/20 border-x-0 border-y shadow-2xl sm:aspect-4/1 sm:rounded-2xl sm:border"
 					initial={{ opacity: 0, y: 40 }}
