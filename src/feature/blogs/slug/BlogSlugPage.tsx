@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import { ChevronRight } from "lucide-react";
 
 import { BLOGS } from "@/constants/blogs";
 
@@ -19,6 +22,38 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 			<div className="container max-w-5xl">
 				<article>
 					<header className="mb-12 border-primary/20 border-b pb-8">
+						<nav aria-label="Breadcrumb" className="mb-8">
+							<ol className="flex items-center space-x-2 font-medium text-foreground/60 text-xs uppercase tracking-wider">
+								<li>
+									<Link
+										className="transition-colors hover:text-primary"
+										href="/"
+									>
+										Home
+									</Link>
+								</li>
+								<li>
+									<ChevronRight className="h-3 w-3" />
+								</li>
+								<li>
+									<Link
+										className="transition-colors hover:text-primary"
+										href="/blogs"
+									>
+										Blogs
+									</Link>
+								</li>
+								<li>
+									<ChevronRight className="h-3 w-3" />
+								</li>
+								<li
+									aria-current="page"
+									className="max-w-[200px] truncate text-primary sm:max-w-[400px]"
+								>
+									{blog.title}
+								</li>
+							</ol>
+						</nav>
 						<p className="mb-4 font-medium text-primary/80 uppercase tracking-[0.2em]">
 							{blog.date}
 						</p>
