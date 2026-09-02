@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { BlogSlugPage as BlogSlugFeature } from "@/feature/blogs/slug/BlogSlugPage";
+import { getAllBlogSlugs, getBlogMeta } from "@/lib/blogs";
 
 interface PageProps {
 	params: Promise<{
@@ -8,17 +9,28 @@ interface PageProps {
 	}>;
 }
 
+export async function generateStaticParams() {
+	return getAllBlogSlugs().map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 	const { slug } = await params;
-	// Format slug for title (e.g., "the-future" -> "The Future")
-	const title = slug
-		.split("-")
-		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-		.join(" ");
+	const meta = getBlogMeta(slug);
+
+	if (!meta) {
+		return {
+			title: "Blog | InfraGuide UAE",
+		};
+	}
 
 	return {
-		title: `${title} | InfraGuide UAE Blog`,
-		description: `Read our latest insights on ${title}.`,
+		title: `${meta.title} | InfraGuide UAE Blog`,
+		description: meta.excerpt,
+		openGraph: {
+			title: meta.title,
+			description: meta.excerpt,
+			images: [{ url: meta.image }],
+		},
 	};
 }
 

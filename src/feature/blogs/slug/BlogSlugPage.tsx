@@ -3,15 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ChevronRight } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
-import { BLOGS } from "@/constants/blogs";
+import { getBlogPost } from "@/lib/blogs";
 
 interface BlogSlugPageProps {
 	slug: string;
 }
 
 export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
-	const blog = BLOGS.find((b) => b.slug === slug);
+	const blog = getBlogPost(slug);
 
 	if (!blog) {
 		notFound();
@@ -72,8 +73,8 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 						/>
 					</div>
 
-					<div className="prose prose-xl prose-invert prose-p:mb-8 max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-headings:text-heading text-foreground/80 prose-headings:uppercase leading-loose prose-headings:tracking-wide marker:text-primary hover:prose-a:text-accent">
-						{blog.content}
+					<div className="prose prose-xl prose-invert prose-h2:mt-16 prose-h3:mt-10 prose-h2:mb-6 prose-h3:mb-3 prose-p:mb-8 max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-h2:text-3xl prose-h2:text-primary prose-h3:text-primary prose-h3:text-xl text-foreground/80 prose-headings:uppercase leading-loose prose-headings:tracking-wide marker:text-primary hover:prose-a:text-accent [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-heading [&_h2]:text-3xl [&_h2]:text-primary [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:md:text-4xl [&_h3]:mt-10 [&_h3]:mb-3 [&_h3]:font-heading [&_h3]:text-primary [&_h3]:text-xl [&_h3]:uppercase [&_h3]:tracking-wide [&_h3]:md:text-2xl">
+						<MDXRemote source={blog.content} />
 					</div>
 				</article>
 			</div>

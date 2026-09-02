@@ -11,10 +11,10 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-import { BLOGS } from "@/constants/blogs";
+import { getAllBlogsMeta } from "@/lib/blogs";
 
 export const BlogsPage = () => {
-	const blogs = BLOGS;
+	const blogs = getAllBlogsMeta();
 
 	return (
 		<main className="min-h-screen w-full bg-background pt-12 pb-24 text-foreground">
@@ -43,7 +43,7 @@ export const BlogsPage = () => {
 
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 					{blogs.map((blog) => (
-						<div key={blog.id}>
+						<div key={blog.slug}>
 							<Card className="group flex h-full flex-col overflow-hidden border-primary/10 bg-section/50 transition-colors duration-300 hover:border-primary/30">
 								<div className="relative aspect-[16/9] w-full overflow-hidden">
 									<Image

@@ -15,10 +15,13 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-import { BLOGS } from "@/constants/blogs";
+import type { BlogMeta } from "@/lib/blogs";
 
-export const BlogsSection = () => {
-	const blogs = BLOGS;
+interface BlogsSectionProps {
+	blogs: BlogMeta[];
+}
+
+export const BlogsSection = ({ blogs }: BlogsSectionProps) => {
 
 	return (
 		<section className="relative w-full bg-background py-16 md:py-24" id="blogs">
@@ -45,7 +48,7 @@ export const BlogsSection = () => {
 					{blogs.map((blog, index) => (
 						<motion.div
 							initial={{ opacity: 0, y: 30 }}
-							key={blog.id}
+							key={blog.slug}
 							transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
 							viewport={{ once: true, margin: "-50px" }}
 							whileInView={{ opacity: 1, y: 0 }}
