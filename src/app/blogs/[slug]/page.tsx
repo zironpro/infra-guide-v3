@@ -26,10 +26,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 	return {
 		title: `${meta.title} | InfraGuide UAE Blog`,
 		description: meta.excerpt,
+		keywords: meta.keywords,
 		openGraph: {
 			title: meta.title,
 			description: meta.excerpt,
 			images: [{ url: meta.image }],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: meta.title,
+			description: meta.excerpt,
+			images: [meta.image],
 		},
 	};
 }

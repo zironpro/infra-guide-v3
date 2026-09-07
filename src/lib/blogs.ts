@@ -12,6 +12,9 @@ export interface BlogMeta {
 	date: string;
 	image: string;
 	link: string;
+	quote?: string;
+	author?: string;
+	keywords?: string[];
 }
 
 export interface BlogPost extends BlogMeta {
@@ -57,6 +60,9 @@ export function getBlogMeta(slug: string): BlogMeta | null {
 		date: data.date ?? "",
 		image: data.image ?? "",
 		link: `/blogs/${slug}`,
+		quote: data.quote ?? "",
+		author: data.author ?? "",
+		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],
 	};
 }
 
@@ -75,6 +81,9 @@ export function getBlogPost(slug: string): BlogPost | null {
 		date: data.date ?? "",
 		image: data.image ?? "",
 		link: `/blogs/${slug}`,
+		quote: data.quote ?? "",
+		author: data.author ?? "",
+		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],
 		content,
 	};
 }

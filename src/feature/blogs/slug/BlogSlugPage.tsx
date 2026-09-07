@@ -61,6 +61,16 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 						<h1 className="mb-6 font-heading text-3xl text-heading uppercase leading-tight tracking-wide sm:text-4xl md:text-5xl">
 							{blog.title}
 						</h1>
+						{blog.quote && (
+							<blockquote className="my-8 border-primary/50 border-l-2 pl-6 text-foreground/80 text-xl italic leading-relaxed">
+								"{blog.quote}"
+							</blockquote>
+						)}
+						{blog.author && (
+							<p className="mt-4 font-medium text-primary text-sm uppercase tracking-wider">
+								{blog.author}
+							</p>
+						)}
 					</header>
 
 					<div className="relative mb-12 aspect-video w-full overflow-hidden rounded-xl border border-primary/10 shadow-lg">
@@ -73,8 +83,26 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 						/>
 					</div>
 
-					<div className="prose prose-xl prose-invert prose-h2:mt-16 prose-h3:mt-10 prose-h2:mb-6 prose-h3:mb-3 prose-p:mb-8 max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-h2:text-3xl prose-h2:text-primary prose-h3:text-primary prose-h3:text-xl text-foreground/80 prose-headings:uppercase leading-loose prose-headings:tracking-wide marker:text-primary hover:prose-a:text-accent [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-heading [&_h2]:text-3xl [&_h2]:text-primary [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:md:text-4xl [&_h3]:mt-10 [&_h3]:mb-3 [&_h3]:font-heading [&_h3]:text-primary [&_h3]:text-xl [&_h3]:uppercase [&_h3]:tracking-wide [&_h3]:md:text-2xl">
-						<MDXRemote source={blog.content} />
+					<div className="prose prose-xl prose-invert prose-h2:mt-16 prose-h3:mt-10 prose-h2:mb-6 prose-h3:mb-3 prose-p:mb-8 max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-h2:text-3xl prose-h2:text-primary prose-h3:text-primary prose-h3:text-xl text-foreground/80 prose-headings:uppercase leading-loose prose-headings:tracking-wide prose-a:underline marker:text-primary hover:prose-a:text-accent [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-heading [&_h2]:text-3xl [&_h2]:text-primary [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:md:text-4xl [&_h3]:mt-10 [&_h3]:mb-3 [&_h3]:font-heading [&_h3]:text-primary [&_h3]:text-xl [&_h3]:uppercase [&_h3]:tracking-wide [&_h3]:md:text-2xl">
+						<MDXRemote
+							components={{
+								a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+									<a
+										{...props}
+										className="underline decoration-primary/50 underline-offset-4 transition-all hover:decoration-primary"
+										rel="noopener noreferrer"
+										target="_blank"
+									/>
+								),
+								blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
+									<blockquote
+										{...props}
+										className="my-8 border-primary/50 border-l-2 pl-6 text-foreground/80 text-xl italic leading-relaxed"
+									/>
+								),
+							}}
+							source={blog.content}
+						/>
 					</div>
 				</article>
 			</div>

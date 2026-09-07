@@ -53,39 +53,38 @@ export const BlogsSection = ({ blogs }: BlogsSectionProps) => {
 							viewport={{ once: true, margin: "-50px" }}
 							whileInView={{ opacity: 1, y: 0 }}
 						>
-							<Card className="group flex h-full flex-col overflow-hidden border-primary/10 bg-section/50 transition-colors duration-300 hover:border-primary/30">
-								<div className="relative aspect-[16/9] w-full overflow-hidden">
-									<Image
-										alt={blog.title}
-										className="object-cover transition-transform duration-500 group-hover:scale-105"
-										fill
-										src={blog.image}
-									/>
-									<div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
-								</div>
-								<CardHeader>
-									<CardDescription className="text-primary/70">
-										{blog.date}
-									</CardDescription>
-									<CardTitle className="font-heading text-2xl text-heading leading-tight transition-colors group-hover:text-primary">
-										{blog.title}
-									</CardTitle>
-								</CardHeader>
-								<CardContent className="grow">
-									<p className="text-foreground/70 text-base leading-relaxed">
-										{blog.excerpt}
-									</p>
-								</CardContent>
-								<CardFooter>
-									<Link
-										className="inline-flex items-center gap-2 font-medium text-primary text-sm uppercase tracking-wider transition-colors hover:text-accent"
-										href={blog.link}
-									>
-										Read Article
-										<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-									</Link>
-								</CardFooter>
-							</Card>
+							<Link href={blog.link} className="group block h-full">
+								<Card className="pt-0 flex h-full flex-col overflow-hidden border-primary/10 bg-section/50 transition-colors duration-300 group-hover:border-primary/30">
+									<div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-xl">
+										<Image
+											alt={blog.title}
+											className="object-cover transition-transform duration-500 group-hover:scale-105"
+											fill
+											src={blog.image}
+										/>
+										<div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
+									</div>
+									<CardHeader>
+										<CardDescription className="text-primary/70">
+											{blog.date}
+										</CardDescription>
+										<CardTitle className="font-heading text-2xl text-heading leading-tight transition-colors group-hover:text-primary">
+											{blog.title}
+										</CardTitle>
+									</CardHeader>
+									<CardContent className="grow">
+										<p className="text-foreground/70 text-base leading-relaxed">
+											{blog.excerpt}
+										</p>
+									</CardContent>
+									<CardFooter>
+										<span className="inline-flex items-center gap-2 font-medium text-primary text-sm uppercase tracking-wider transition-colors group-hover:text-accent">
+											Read Article
+											<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+										</span>
+									</CardFooter>
+								</Card>
+							</Link>
 						</motion.div>
 					))}
 				</div>
