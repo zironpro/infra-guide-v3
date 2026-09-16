@@ -65,9 +65,25 @@ export const BlogsSection = ({ blogs }: BlogsSectionProps) => {
 										<div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
 									</div>
 									<CardHeader>
-										<CardDescription className="text-primary/70">
-											{blog.date}
-										</CardDescription>
+										<div className="flex items-center gap-2 mb-2">
+											{blog.label && (
+												<>
+													<span className="text-xs font-semibold text-primary uppercase tracking-wider">
+														{blog.label}
+													</span>
+													<span className="text-primary/40 text-xs">•</span>
+												</>
+											)}
+											<CardDescription className="text-primary/70 flex items-center gap-2">
+												<span>{blog.date}</span>
+												{blog.readTime && (
+													<>
+														<span className="text-primary/40 text-xs">•</span>
+														<span>{blog.readTime}</span>
+													</>
+												)}
+											</CardDescription>
+										</div>
 										<CardTitle className="font-heading text-2xl text-heading leading-tight transition-colors group-hover:text-primary">
 											{blog.title}
 										</CardTitle>

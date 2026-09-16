@@ -14,6 +14,8 @@ import {
 
 import { getAllBlogsMeta } from "@/lib/blogs";
 
+import { BlogList } from "./BlogList";
+
 export const BlogsPage = () => {
 	const blogs = getAllBlogsMeta();
 
@@ -45,44 +47,7 @@ export const BlogsPage = () => {
 					</p>
 				</header>
 
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-					{blogs.map((blog) => (
-						<div key={blog.slug}>
-							<Link className="group block h-full" href={blog.link}>
-								<Card className="flex h-full flex-col overflow-hidden border-primary/10 bg-section/50 pt-0 transition-colors duration-300 group-hover:border-primary/30">
-									<div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-xl">
-										<Image
-											alt={blog.title}
-											className="object-cover transition-transform duration-500 group-hover:scale-105"
-											fill
-											src={blog.image}
-										/>
-										<div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
-									</div>
-									<CardHeader>
-										<CardDescription className="text-primary/70">
-											{blog.date}
-										</CardDescription>
-										<CardTitle className="font-heading text-2xl text-heading leading-tight transition-colors group-hover:text-primary">
-											{blog.title}
-										</CardTitle>
-									</CardHeader>
-									<CardContent className="grow">
-										<p className="text-base text-foreground/70 leading-relaxed">
-											{blog.excerpt}
-										</p>
-									</CardContent>
-									<CardFooter>
-										<span className="inline-flex items-center gap-2 font-medium text-primary text-sm uppercase tracking-wider transition-colors group-hover:text-accent">
-											Read Article
-											<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-										</span>
-									</CardFooter>
-								</Card>
-							</Link>
-						</div>
-					))}
-				</div>
+				<BlogList blogs={blogs} />
 			</div>
 		</main>
 	);

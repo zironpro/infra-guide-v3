@@ -12,6 +12,8 @@ export interface BlogMeta {
 	date: string;
 	image: string;
 	link: string;
+	label?: string;
+	readTime?: string;
 	quote?: string;
 	author?: string;
 	keywords?: string[];
@@ -51,7 +53,10 @@ export function getBlogMeta(slug: string): BlogMeta | null {
 	if (!filePath) return null;
 
 	const raw = fs.readFileSync(filePath, "utf-8");
-	const { data } = matter(raw);
+	const { data, content } = matter(raw);
+
+	const wordCount = content.split(/\s+/).length;
+	const computedReadTime = Math.ceil(wordCount / 200) + " min read";
 
 	return {
 		slug,
@@ -60,6 +65,8 @@ export function getBlogMeta(slug: string): BlogMeta | null {
 		date: data.date ?? "",
 		image: data.image ?? "",
 		link: `/blogs/${slug}`,
+		label: data.label ?? undefined,
+		readTime: data.readTime ?? computedReadTime,
 		quote: data.quote ?? "",
 		author: data.author ?? "",
 		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],
@@ -74,6 +81,9 @@ export function getBlogPost(slug: string): BlogPost | null {
 	const raw = fs.readFileSync(filePath, "utf-8");
 	const { data, content } = matter(raw);
 
+	const wordCount = content.split(/\s+/).length;
+	const computedReadTime = Math.ceil(wordCount / 200) + " min read";
+
 	return {
 		slug,
 		title: data.title ?? slug,
@@ -81,6 +91,8 @@ export function getBlogPost(slug: string): BlogPost | null {
 		date: data.date ?? "",
 		image: data.image ?? "",
 		link: `/blogs/${slug}`,
+		label: data.label ?? undefined,
+		readTime: data.readTime ?? computedReadTime,
 		quote: data.quote ?? "",
 		author: data.author ?? "",
 		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],

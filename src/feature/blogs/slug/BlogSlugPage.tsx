@@ -55,9 +55,25 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 								</li>
 							</ol>
 						</nav>
-						<p className="mb-4 font-medium text-primary/80 uppercase tracking-[0.2em]">
-							{blog.date}
-						</p>
+						<div className="mb-4 flex items-center gap-2">
+							{blog.label && (
+								<>
+									<span className="font-semibold text-primary uppercase tracking-wider text-sm">
+										{blog.label}
+									</span>
+									<span className="text-primary/40 text-sm">•</span>
+								</>
+							)}
+							<p className="font-medium text-primary/80 uppercase tracking-[0.2em] text-sm flex items-center gap-2">
+								<span>{blog.date}</span>
+								{blog.readTime && (
+									<>
+										<span className="text-primary/40 text-xs">•</span>
+										<span>{blog.readTime}</span>
+									</>
+								)}
+							</p>
+						</div>
 						<h1 className="mb-6 font-heading text-3xl text-heading uppercase leading-tight tracking-wide sm:text-4xl md:text-5xl">
 							{blog.title}
 						</h1>
