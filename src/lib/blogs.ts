@@ -17,6 +17,7 @@ export interface BlogMeta {
 	quote?: string;
 	author?: string;
 	keywords?: string[];
+	order?: number;
 }
 
 export interface BlogPost extends BlogMeta {
@@ -41,6 +42,15 @@ export function getAllBlogsMeta(): BlogMeta[] {
 	metas.sort((a, b) => {
 		const da = new Date(a.date).getTime();
 		const db = new Date(b.date).getTime();
+		
+		if (da === db) {
+			const orderA = a.order ?? 999;
+			const orderB = b.order ?? 999;
+			if (orderA !== orderB) {
+				return orderA - orderB;
+			}
+		}
+
 		return db - da;
 	});
 
@@ -70,6 +80,7 @@ export function getBlogMeta(slug: string): BlogMeta | null {
 		quote: data.quote ?? "",
 		author: data.author ?? "",
 		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],
+		order: data.order ?? undefined,
 	};
 }
 
@@ -96,6 +107,7 @@ export function getBlogPost(slug: string): BlogPost | null {
 		quote: data.quote ?? "",
 		author: data.author ?? "",
 		keywords: data.keywords ? data.keywords.split(',').map((k: string) => k.trim()) : [],
+		order: data.order ?? undefined,
 		content,
 	};
 }
