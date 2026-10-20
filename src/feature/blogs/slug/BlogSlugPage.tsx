@@ -99,9 +99,15 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 						/>
 					</div>
 
-					<div className="prose prose-xl prose-invert prose-h2:mt-16 prose-h3:mt-10 prose-h2:mb-6 prose-h3:mb-3 prose-p:mb-8 max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-h2:text-3xl prose-h2:text-primary prose-h3:text-primary prose-h3:text-xl text-foreground/80 prose-headings:uppercase leading-loose prose-headings:tracking-wide prose-a:underline marker:text-primary hover:prose-a:text-accent [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-heading [&_h2]:text-3xl [&_h2]:text-primary [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:md:text-4xl [&_h3]:mt-10 [&_h3]:mb-3 [&_h3]:font-heading [&_h3]:text-primary [&_h3]:text-xl [&_h3]:uppercase [&_h3]:tracking-wide [&_h3]:md:text-2xl">
+					<div className="prose prose-xl prose-invert prose-h2:mt-16 prose-h3:mt-10 prose-h2:mb-6 prose-h3:mb-3 prose-p:mb-8 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg max-w-none font-light prose-headings:font-heading prose-a:text-primary prose-h2:text-3xl prose-h2:text-primary prose-h3:text-primary prose-h3:text-xl text-foreground/80 prose-headings:uppercase prose-headings:tracking-wide prose-a:underline marker:text-primary hover:prose-a:text-accent [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-heading [&_h2]:text-3xl [&_h2]:text-primary [&_h2]:uppercase [&_h2]:tracking-wide [&_h2]:md:text-4xl [&_h3]:mt-10 [&_h3]:mb-3 [&_h3]:font-heading [&_h3]:text-primary [&_h3]:text-xl [&_h3]:uppercase [&_h3]:tracking-wide [&_h3]:md:text-2xl [&_p]:mb-8 [&_p]:leading-relaxed">
 						<MDXRemote
 							components={{
+								p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
+									<p
+										{...props}
+										className="mb-8 text-foreground/80 text-base md:text-lg leading-relaxed font-light"
+									/>
+								),
 								a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
 									<a
 										{...props}
@@ -113,7 +119,7 @@ export const BlogSlugPage = ({ slug }: BlogSlugPageProps) => {
 								blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
 									<blockquote
 										{...props}
-										className="my-8 border-primary/50 border-l-2 pl-6 text-foreground/80 text-xl italic leading-relaxed"
+										className="my-10 border-primary/50 border-l-2 pl-6 text-foreground/80 text-xl italic leading-relaxed"
 									/>
 								),
 							}}
